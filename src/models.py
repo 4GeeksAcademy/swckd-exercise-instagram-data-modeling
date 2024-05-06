@@ -32,3 +32,11 @@ class Followers(Base):
     id = Column(Integer, primary_key=True)
     followed_id = Column(Integer, ForeignKey('user.id'))
     followed_by_id = Column(Integer, ForeignKey('user.id'))
+
+## Draw from SQLAlchemy base
+try:
+    result = render_er(Base, 'diagram.png')
+    print("Success! Check the diagram.png file")
+except Exception as e:
+    print("There was a problem genering the diagram")
+    raise e
